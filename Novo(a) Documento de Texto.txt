@@ -1,0 +1,110 @@
+use db_ivan_rodrigues;
+CREATE TABLE igvr_usuarios (
+    idUsuarios INT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    apelido VARCHAR(25) NOT NULL,
+    cpf VARCHAR(4) NOT NULL,
+    dataNascimento DATE NOT NULL,
+    senha VARCHAR(20) NOT NULL,
+    nivel INT NOT NULL,
+    ativo VARCHAR(1) NOT NULL
+);
+
+CREATE TABLE igvr_clientes (
+    id_cliente INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100),
+    cpf VARCHAR(14),
+    data_nascimento DATE,
+    telefone VARCHAR(20),
+    celular VARCHAR(20),
+    email VARCHAR(100),
+    cep VARCHAR(10),
+    endereco VARCHAR(150),
+    numero VARCHAR(10),
+    complemento VARCHAR(50),
+    bairro VARCHAR(50),
+    cidade VARCHAR(50),
+    estado VARCHAR(2),
+    data_cadastro DATE
+);
+
+CREATE TABLE igvr_fornecedores (
+    id_fornecedor INT PRIMARY KEY AUTO_INCREMENT,
+    razao_social VARCHAR(150),
+    nome_fantasia VARCHAR(150),
+    cnpj VARCHAR(18),
+    inscricao_estadual VARCHAR(20),
+    telefone VARCHAR(20),
+    celular VARCHAR(20),
+    email VARCHAR(100),
+    cep VARCHAR(10),
+    endereco VARCHAR(150),
+    numero VARCHAR(10),
+    complemento VARCHAR(50),
+    bairro VARCHAR(50),
+    cidade VARCHAR(50),
+    estado VARCHAR(2)
+);
+
+CREATE TABLE igmr_produtos (
+    igmr_id_produto INT PRIMARY KEY AUTO_INCREMENT,
+    igmr_nome_produto VARCHAR(100),
+    igmr_descricao TEXT,
+    igmr_preco DECIMAL(10,2),
+    igmr_estoque INT,
+    igmr_id_fornecedor INT,
+    igmr_data_cadastro DATE,
+    FOREIGN KEY (igmr_id_fornecedor) REFERENCES igmr_fornecedores(igmr_id_fornecedor)
+);
+
+	CREATE TABLE igmr_funcionarios (
+		igmr_id_funcionario INT PRIMARY KEY AUTO_INCREMENT,
+		igmr_nome VARCHAR(100) NOT NULL,
+		igmr_cpf VARCHAR(14) NOT NULL,
+		igmr_rg VARCHAR(20) NOT NULL,
+		igmr_data_nascimento DATE NOT NULL,
+		igmr_telefone VARCHAR(20),
+		igmr_celular VARCHAR(20),
+		igmr_email VARCHAR(100),
+		igmr_cep VARCHAR(10),
+		igmr_endereco VARCHAR(150),
+		igmr_numero VARCHAR(10),
+		igmr_bairro VARCHAR(50),
+		igmr_cidade VARCHAR(50),
+		igmr_estado VARCHAR(2),
+		igmr_data_admissao DATE
+	);
+    
+CREATE TABLE igmr_vendas (
+    igmr_id_venda INT PRIMARY KEY AUTO_INCREMENT,
+    igmr_id_funcionario INT NOT NULL,
+    igmr_data_venda DATE NOT NULL,
+    igmr_valor_total DECIMAL(10,2) NOT NULL,
+    igmr_forma_pagamento VARCHAR(50) NOT NULL,
+    igmr_status_venda VARCHAR(20) NOT NULL,
+    igmr_observacoes TEXT,
+    FOREIGN KEY (igmr_id_funcionario) 
+    REFERENCES igmr_funcionarios(igmr_id_funcionario)
+);
+
+CREATE TABLE igmr_itens_venda (
+    igmr_id_item INT PRIMARY KEY AUTO_INCREMENT,
+    igmr_id_venda INT NOT NULL,
+    igmr_id_produto INT NOT NULL,
+    igmr_quantidade INT NOT NULL,
+    igmr_preco_unitario DECIMAL(10,2) NOT NULL,
+    igmr_subtotal DECIMAL(10,2) NOT NULL,
+    igmr_desconto DECIMAL(10,2),
+    FOREIGN KEY (igmr_id_venda) 
+        REFERENCES igmr_vendas(igmr_id_venda),
+    FOREIGN KEY (igmr_id_produto) 
+        REFERENCES igmr_produtos(igmr_id_produto)
+);
+
+
+
+
+INSERT INTO igmr_funcionarios
+(nome, cpf, rg, data_nascimento, telefone, celular, email, cep, endereco, numero, bairro, cidade, estado, data_admissao)
+VALUES
+('Carlos Silva', '12345678900', '1234567', '1995-04-10', '2133334444', '21988887777', 'carlos@email.com', '20000-000', 'Rua A', '10', 'Centro', 'Rio de Janeiro', 'RJ', '2024-01-10');
