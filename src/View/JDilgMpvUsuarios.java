@@ -150,6 +150,11 @@ public class JDilgMpvUsuarios extends javax.swing.JDialog {
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pesquisar.png"))); // NOI18N
         jButton7.setText("Pesquisar");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -279,6 +284,11 @@ public class JDilgMpvUsuarios extends javax.swing.JDialog {
         // TODO add your handling code here:
         JOptionPane.showConfirmDialog(null,"Confirmar exclusão do usuário ?", "Selecione a opção", JOptionPane.YES_NO_OPTION);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showInputDialog(null, "Entre com o codigo do usuário");
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
