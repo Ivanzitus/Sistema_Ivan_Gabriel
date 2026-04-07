@@ -4,6 +4,8 @@
  */
 package View;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author u05661916108
@@ -21,13 +23,13 @@ public class JDilgMpvUsuarios extends javax.swing.JDialog {
        jTxtCodigo.setEnabled(false);
        jTxtNome.setEnabled(false);
        jTxtApelido.setEnabled(false);
-       jFmtCpf.setEnabled(false);
-       jFmtDataNascimento.setEnabled(false);
-       jCboNivel.setEnabled(false);
-       jPwfSenha.setEnabled(false);
-       jChbAtivo.setEnabled(false);
-       jBtnConfirmar.setEnabled(false);
-       jBtnCancelar.setEnabled(false);
+       jFmtdCPF.setEnabled(false);
+       jFmtdDataNacimento.setEnabled(false);
+       jCheckBox1.setEnabled(false);//tipo
+       jPasswordField1.setEnabled(false);
+       jComboBox1.setEnabled(false);//ativo
+       jButton1.setEnabled(false);//confirmar
+       jButton5.setEnabled(false);//canseral
     }
 
     /**
@@ -134,6 +136,11 @@ public class JDilgMpvUsuarios extends javax.swing.JDialog {
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Excluir.png"))); // NOI18N
         jButton3.setText("Excluir");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/confirmar.png"))); // NOI18N
         jButton4.setText("Confirmar");
@@ -267,6 +274,11 @@ public class JDilgMpvUsuarios extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showConfirmDialog(null,"Confirmar exclusão do usuário ?", "Selecione a opção", JOptionPane.YES_NO_OPTION);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
