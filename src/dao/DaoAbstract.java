@@ -8,6 +8,11 @@ package dao;
  *
  * @author u05661916108
  */
-public class DaoAbstract {
-    
+public abstract class DaoAbstract {
+        public abstract void incert(Object object);
+        public abstract void update(Object object);
+        public abstract void delite(Object object);
+        public abstract Object list(int id);
+        public abstract Object listAll();
+        
 }

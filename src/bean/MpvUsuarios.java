@@ -7,7 +7,7 @@ package bean;
 import java.util.Date;
 
 /**
- *Imagina ele usando o efeiro do lobisome 
+ *
  * @author u05661916108
  */
 public class MpvUsuarios {
